@@ -1,7 +1,10 @@
-require "rake/clean"
+begin
+  require "bundler/gem_tasks"
+rescue LoadError
+end
+
 require "rake/testtask"
 
-CLEAN.add "*.gem"
 
 Rake::TestTask.new(:test) do |t|
   t.libs << "test"
