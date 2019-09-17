@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby --disable-gems
+#
+# A "sans *.rb" bin stub file for `cfme-versions.rb` program
+#
+# Used when installed as a gem
+
+require File.expand_path(File.join("..", "cfme-versions"), __FILE__)
+
+CFME::Versions.run
