@@ -84,7 +84,6 @@ License
 -------
 
 This project is available as open source under the [Apache License 2.0][].
-                                                     
 
 
 [GitHub]:              https://github.com/RedHatCloudForms/cfme-versions
