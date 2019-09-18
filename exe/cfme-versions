@@ -4,6 +4,6 @@
 #
 # Used when installed as a gem
 
-require File.expand_path(File.join("..", "cfme-versions"), __FILE__)
+require "cfme-versions"
 
 CFME::Versions.run

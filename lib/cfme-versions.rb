@@ -33,11 +33,10 @@
 #     CFME::Versions.last.ruby
 #     #=> "2.5.z"
 #     CFME::Versions.last
-#     #=> #<struct CFME::Version miq_release="Jansa", cfme_release="5.12.z", cloud_forms_release="5.1", ruby="2.5.z", rails="5.2.z", postrgresql="10.y">
+#     #=> #<struct CFME::Version miq_release="Jansa", cfme_release="5.12.z", cloud_forms_release="5.1", ruby="2.5.z", rails="5.2.z", postgresql="10.y">
 #
-
 module CFME
-  Version = Struct.new(:miq_release, :cfme_release, :cloud_forms_release, :ruby, :rails, :postrgresql)
+  Version = Struct.new(:miq_release, :cfme_release, :cloud_forms_release, :ruby, :rails, :postgresql)
 
   class Versions
     extend Enumerable

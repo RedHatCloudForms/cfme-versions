@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift File.expand_path(File.join("..", ".."), __FILE__)
+$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require "cfme-versions"
 require "minitest/autorun"
 
