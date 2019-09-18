@@ -2,7 +2,7 @@
 ================
 
 Command line utility and library for viewing versions across CloudForms (CF),
-Cloud Forms Management Engine (CFME), and ManageIQ (MIQ).
+CloudForms Management Engine (CFME), and ManageIQ (MIQ).
 
 
 Requirements
@@ -65,7 +65,7 @@ CFME::Versions.last
 #       cloud_forms_release="5.1",
 #       ruby="2.5.z",
 #       rails="5.2.z",
-#       postrgresql="10.y">
+#       postgresql="10.y">
 ```
 
 
