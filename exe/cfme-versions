@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby --disable-gems
+#!/usr/bin/env ruby
 #
 # A "sans *.rb" bin stub file for `cfme-versions.rb` program
 #
