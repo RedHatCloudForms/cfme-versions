@@ -1,6 +1,24 @@
 require "test_helper"
 
 class CFME::Versions::Test < Minitest::Test
+  DEFAULT_TABLE_DATA = <<-TABLE_DATA.gsub(/^ {4}/, '')
+    +----------------+------------------------------+------------+-------+-------+------------+
+    | MANAGEIQ       | CLOUDFORMS MANAGEMENT ENGINE | CLOUDFORMS | RUBY  | RAILS | POSTGRESQL |
+    +----------------+------------------------------+------------+-------+-------+------------+
+    |                | 5.1.z                        | 2.0        |       |       |            |
+    |                | 5.2.z                        | 3.0        |       |       |            |
+    | Anand          | 5.3.z                        | 3.1        |       |       |            |
+    | Botvinnik      | 5.4.z                        | 3.2        |       |       |            |
+    | Capablanca     | 5.5.z                        | 4.0        | 2.2.z | 4.2.z | 9.4.z      |
+    | Darga          | 5.6.z                        | 4.1        | 2.2.z | 5.0.z | 9.4.z      |
+    | Euwe           | 5.7.z                        | 4.2        | 2.3.z | 5.0.z | 9.5.z      |
+    | Fine           | 5.8.z                        | 4.5        | 2.3.z | 5.0.z | 9.5.z      |
+    | Gaprindashvili | 5.9.z                        | 4.6        | 2.3.z | 5.0.z | 9.5.z      |
+    | Hammer         | 5.10.z                       | 4.7        | 2.4.z | 5.0.z | 9.5.z      |
+    | Ivanchuk       | 5.11.z                       | 5.0        | 2.5.z | 5.1.z | 10.y       |
+    | Jansa          | 5.12.z                       | 5.1        | 2.5.z | 5.2.z | 10.y       |
+    +----------------+------------------------------+------------+-------+-------+------------+
+  TABLE_DATA
   def teardown
     # reset class variables
     CFME::Versions.teardown
@@ -12,45 +30,15 @@ class CFME::Versions::Test < Minitest::Test
 
   def test_run
     actual   = capture_io { CFME::Versions.run([]) }[0]
-    expected = <<-OUTPUT.gsub(/^ {6}/, '')
-      +----------------+------------------------------+------------+-------+-------+------------+
-      | MANAGEIQ       | CLOUDFORMS MANAGEMENT ENGINE | CLOUDFORMS | RUBY  | RAILS | POSTGRESQL |
-      +----------------+------------------------------+------------+-------+-------+------------+
-      |                | 5.1.z                        | 2.0        |       |       |            |
-      |                | 5.2.z                        | 3.0        |       |       |            |
-      | Anand          | 5.3.z                        | 3.1        |       |       |            |
-      | Botvinnik      | 5.4.z                        | 3.1        |       |       |            |
-      | Capablanca     | 5.5.z                        | 4.0        | 2.2.z | 4.2.z | 9.4.z      |
-      | Darga          | 5.6.z                        | 4.1        | 2.2.z | 5.0.z | 9.4.z      |
-      | Euwe           | 5.7.z                        | 4.1        | 2.3.z | 5.0.z | 9.5.z      |
-      | Fine           | 5.8.z                        | 4.5        | 2.3.z | 5.0.z | 9.5.z      |
-      | Gaprindashvili | 5.9.z                        | 4.6        | 2.3.z | 5.0.z | 9.5.z      |
-      | Hammer         | 5.10.z                       | 4.7        | 2.4.z | 5.0.z | 9.5.z      |
-      | Ivanchuk       | 5.11.z                       | 5.0        | 2.5.z | 5.1.z | 10.y       |
-      | Jansa          | 5.12.z                       | 5.1        | 2.5.z | 5.2.z | 10.y       |
-      +----------------+------------------------------+------------+-------+-------+------------+
-    OUTPUT
-    assert_equal expected, actual
+    assert_equal DEFAULT_TABLE_DATA, actual
   end
 
   def test_run_with_markdown_flag
     actual   = capture_io { CFME::Versions.run(["--markdown"]) }[0]
-    expected = <<-OUTPUT.gsub(/^ {6}/, '')
-      | MANAGEIQ       | CLOUDFORMS MANAGEMENT ENGINE | CLOUDFORMS | RUBY  | RAILS | POSTGRESQL |
-      |----------------|------------------------------|------------|-------|-------|------------|
-      |                | 5.1.z                        | 2.0        |       |       |            |
-      |                | 5.2.z                        | 3.0        |       |       |            |
-      | Anand          | 5.3.z                        | 3.1        |       |       |            |
-      | Botvinnik      | 5.4.z                        | 3.1        |       |       |            |
-      | Capablanca     | 5.5.z                        | 4.0        | 2.2.z | 4.2.z | 9.4.z      |
-      | Darga          | 5.6.z                        | 4.1        | 2.2.z | 5.0.z | 9.4.z      |
-      | Euwe           | 5.7.z                        | 4.1        | 2.3.z | 5.0.z | 9.5.z      |
-      | Fine           | 5.8.z                        | 4.5        | 2.3.z | 5.0.z | 9.5.z      |
-      | Gaprindashvili | 5.9.z                        | 4.6        | 2.3.z | 5.0.z | 9.5.z      |
-      | Hammer         | 5.10.z                       | 4.7        | 2.4.z | 5.0.z | 9.5.z      |
-      | Ivanchuk       | 5.11.z                       | 5.0        | 2.5.z | 5.1.z | 10.y       |
-      | Jansa          | 5.12.z                       | 5.1        | 2.5.z | 5.2.z | 10.y       |
-    OUTPUT
+    expected = DEFAULT_TABLE_DATA.dup.lines.tap do |data|
+                 data.shift
+                 data.pop
+               end.join.tr("+", "|")
 
     assert_equal expected, actual
   end
@@ -116,5 +104,12 @@ class CFME::Versions::Test < Minitest::Test
     ]
 
     assert_equal expected, actual
+  end
+
+  def test_readme_includes_proper_table
+    readme_data = File.read(File.expand_path(File.join(*%w[.. .. README.md]), __FILE__))
+
+    assert readme_data.include?(DEFAULT_TABLE_DATA),
+           "README.md is not updated with new data!  Please update!"
   end
 end

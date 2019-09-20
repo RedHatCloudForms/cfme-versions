@@ -9,7 +9,7 @@
 #     |                | 5.1.z                        | 2.0        |       |       |            |
 #     |                | 5.2.z                        | 3.0        |       |       |            |
 #     | Anand          | 5.3.z                        | 3.1        |       |       |            |
-#     | Botvinnik      | 5.4.z                        | 3.1        |       |       |            |
+#     | Botvinnik      | 5.4.z                        | 3.2        |       |       |            |
 #     | Capablanca     | 5.5.z                        | 4.0        | 2.2.z | 4.2.z | 9.4.z      |
 #     | Darga          | 5.6.z                        | 4.1        | 2.2.z | 5.0.z | 9.4.z      |
 #     | Euwe           | 5.7.z                        | 4.1        | 2.3.z | 5.0.z | 9.5.z      |
@@ -48,10 +48,10 @@ module CFME
       %w[ N/A              5.1.z                           2.0           N/A     N/A      N/A        ],
       %w[ N/A              5.2.z                           3.0           N/A     N/A      N/A        ],
       %w[ Anand            5.3.z                           3.1           N/A     N/A      N/A        ],
-      %w[ Botvinnik        5.4.z                           3.1           N/A     N/A      N/A        ],
+      %w[ Botvinnik        5.4.z                           3.2           N/A     N/A      N/A        ],
       %w[ Capablanca       5.5.z                           4.0           2.2.z   4.2.z    9.4.z      ],
       %w[ Darga            5.6.z                           4.1           2.2.z   5.0.z    9.4.z      ],
-      %w[ Euwe             5.7.z                           4.1           2.3.z   5.0.z    9.5.z      ],
+      %w[ Euwe             5.7.z                           4.2           2.3.z   5.0.z    9.5.z      ],
       %w[ Fine             5.8.z                           4.5           2.3.z   5.0.z    9.5.z      ],
       %w[ Gaprindashvili   5.9.z                           4.6           2.3.z   5.0.z    9.5.z      ],
       %w[ Hammer           5.10.z                          4.7           2.4.z   5.0.z    9.5.z      ],
