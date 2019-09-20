@@ -25,7 +25,7 @@ class CFME::Versions::Test < Minitest::Test
   end
 
   def test_version
-    assert_equal "5.12", CFME::Versions.version
+    assert_equal "5.12.1", CFME::Versions.version
   end
 
   def test_run
@@ -44,7 +44,7 @@ class CFME::Versions::Test < Minitest::Test
   end
 
   def test_run_with_version_flag
-    assert_equal "5.12", capture_io { CFME::Versions.run(["--version"]) }[0].chomp
+    assert_equal "5.12.1", capture_io { CFME::Versions.run(["--version"]) }[0].chomp
   end
 
   def test_run_with_help_flag
