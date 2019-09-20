@@ -91,7 +91,7 @@ module CFME
 
       # Version of this gem/tool
       def version
-        versions.last.cfme_release.split(".").select { |val| val =~ /^\d+$/ }.join('.')
+        versions.last.cfme_release.split(".").select { |val| val =~ /^\d+$/ }.join('.') + ".1"
       end
 
       def versions

@@ -49,6 +49,18 @@ $ gem install cfme-versions
 ```
 
 
+Versioning
+----------
+
+Ideally we will keep the version of this gem in-sync with the version of the
+most recent `y-stream` (minor) version release of CFME.  However, in the case
+of bug fixes, patch versions might be included.
+
+In the cases where this is need, just add to the `CFME::Versions.version`
+method a `+ ".1"` to the end of the method to bump the version, and update
+tests as needed.
+
+
 Usage
 -----
 
