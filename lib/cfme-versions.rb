@@ -18,6 +18,7 @@
 #     | Hammer         | 5.10.z                       | 4.7        | 2.4.z | 5.0.z | 9.5.z      |
 #     | Ivanchuk       | 5.11.z                       | 5.0        | 2.5.z | 5.1.z | 10.y       |
 #     | Jansa          | 5.12.z                       | 5.1        | 2.5.z | 5.2.z | 10.y       |
+#     | Kasparov       | 5.13.z                       | 5.2        | 2.6.z | 5.2.z | 10.y       |
 #     +----------------+------------------------------+------------+-------+-------+------------+
 #
 # Otherwise, it can be required in a ruby script or rake task and manipulated as needed:
@@ -56,7 +57,8 @@ module CFME
       %w[ Gaprindashvili  7.y.z      5.9.z                           4.6           2.3.z   5.0.z    9.5.z      ],
       %w[ Hammer          8.y.z      5.10.z                          4.7           2.4.z   5.0.z    9.5.z      ],
       %w[ Ivanchuk        9.y.z      5.11.z                          5.0           2.5.z   5.1.z    10.y       ],
-      %w[ Jansa           10.y.z     5.12.z                          5.1           2.5.z   5.2.z    10.y       ]
+      %w[ Jansa           10.y.z     5.12.z                          5.1           2.5.z   5.2.z    10.y       ],
+      %w[ Kasparov        11.y.z     5.13.z                          5.2           2.6.z   5.2.z    10.y       ]
     ].freeze
 
     class << self
@@ -91,7 +93,7 @@ module CFME
 
       # Version of this gem/tool
       def version
-        versions.last.cfme_release.split(".").select { |val| val =~ /^\d+$/ }.join('.') + ".1"
+        versions.last.cfme_release.split(".").select { |val| val =~ /^\d+$/ }.join('.') + ".0"
       end
 
       def versions
