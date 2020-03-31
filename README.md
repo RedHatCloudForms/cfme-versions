@@ -57,9 +57,12 @@ Ideally we will keep the version of this gem in-sync with the version of the
 most recent `y-stream` (minor) version release of CFME.  However, in the case
 of bug fixes, patch versions might be included.
 
-In the cases where this is need, just add to the `CFME::Versions.version`
-method a `+ ".1"` to the end of the method to bump the version, and update
-tests as needed.
+In the cases where a patch is needed, just update the `CFME::Versions.version`
+method a `+ ".X"` to the end of the method to bump the version (where `X` is
+the patch level that needs to be bumped), and update tests as needed.
+
+When a new version is released, reset the end of the string to `+ ".0"` for
+consistency.
 
 
 Usage
