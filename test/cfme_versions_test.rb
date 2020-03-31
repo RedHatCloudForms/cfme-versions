@@ -17,6 +17,7 @@ class CFME::Versions::Test < Minitest::Test
     | Hammer         | 8.y.z  | 5.10.z                       | 4.7        | 2.4.z | 5.0.z | 9.5.z      |
     | Ivanchuk       | 9.y.z  | 5.11.z                       | 5.0        | 2.5.z | 5.1.z | 10.y       |
     | Jansa          | 10.y.z | 5.12.z                       | 5.1        | 2.5.z | 5.2.z | 10.y       |
+    | Kasparov       | 11.y.z | 5.13.z                       | 5.2        | 2.6.z | 5.2.z | 10.y       |
     +----------------+--------+------------------------------+------------+-------+-------+------------+
   TABLE_DATA
   def teardown
@@ -25,7 +26,7 @@ class CFME::Versions::Test < Minitest::Test
   end
 
   def test_version
-    assert_equal "5.12.1", CFME::Versions.version
+    assert_equal "5.13.0", CFME::Versions.version
   end
 
   def test_run
@@ -44,7 +45,7 @@ class CFME::Versions::Test < Minitest::Test
   end
 
   def test_run_with_version_flag
-    assert_equal "5.12.1", capture_io { CFME::Versions.run(["--version"]) }[0].chomp
+    assert_equal "5.13.0", capture_io { CFME::Versions.run(["--version"]) }[0].chomp
   end
 
   def test_run_with_help_flag
@@ -74,9 +75,9 @@ class CFME::Versions::Test < Minitest::Test
   def test_cfme_versions_last
     version = CFME::Versions.last
 
-    assert_equal "Jansa",  version.miq_release
-    assert_equal "5.12.z", version.cfme_release
-    assert_equal "5.1",    version.cloud_forms_release
+    assert_equal "Kasparov",  version.miq_release
+    assert_equal "5.13.z", version.cfme_release
+    assert_equal "5.2",    version.cloud_forms_release
   end
 
   def test_cfme_versions_specific_index
@@ -101,6 +102,7 @@ class CFME::Versions::Test < Minitest::Test
       Hammer
       Ivanchuk
       Jansa
+      Kasparov
     ]
 
     assert_equal expected, actual

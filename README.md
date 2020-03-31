@@ -21,6 +21,7 @@ $ cfme-versions
 | Hammer         | 8.y.z  | 5.10.z                       | 4.7        | 2.4.z | 5.0.z | 9.5.z      |
 | Ivanchuk       | 9.y.z  | 5.11.z                       | 5.0        | 2.5.z | 5.1.z | 10.y       |
 | Jansa          | 10.y.z | 5.12.z                       | 5.1        | 2.5.z | 5.2.z | 10.y       |
+| Kasparov       | 11.y.z | 5.13.z                       | 5.2        | 2.6.z | 5.2.z | 10.y       |
 +----------------+--------+------------------------------+------------+-------+-------+------------+
 ```
 
@@ -56,9 +57,12 @@ Ideally we will keep the version of this gem in-sync with the version of the
 most recent `y-stream` (minor) version release of CFME.  However, in the case
 of bug fixes, patch versions might be included.
 
-In the cases where this is need, just add to the `CFME::Versions.version`
-method a `+ ".1"` to the end of the method to bump the version, and update
-tests as needed.
+In the cases where a patch is needed, just update the `CFME::Versions.version`
+method a `+ ".X"` to the end of the method to bump the version (where `X` is
+the patch level that needs to be bumped), and update tests as needed.
+
+When a new version is released, reset the end of the string to `+ ".0"` for
+consistency.
 
 
 Usage
