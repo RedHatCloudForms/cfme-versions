@@ -1,25 +1,6 @@
 #!/usr/bin/env ruby --disable-gems
 #
-# When run as a program, prints the following table
-#
-#     $ cfme-versions.rb
-#     +----------------+--------+------------------------------+------------+-------+-------+------------+
-#     | MANAGEIQ       |        | CLOUDFORMS MANAGEMENT ENGINE | CLOUDFORMS | RUBY  | RAILS | POSTGRESQL |
-#     +----------------+--------+------------------------------+------------+-------+-------+------------+
-#     |                |        | 5.1.z                        | 2.0        |       |       |            |
-#     |                |        | 5.2.z                        | 3.0        |       |       |            |
-#     | Anand          | 1.y.z  | 5.3.z                        | 3.1        |       |       |            |
-#     | Botvinnik      | 2.y.z  | 5.4.z                        | 3.2        |       |       |            |
-#     | Capablanca     | 3.y.z  | 5.5.z                        | 4.0        | 2.2.z | 4.2.z | 9.4.z      |
-#     | Darga          | 4.y.z  | 5.6.z                        | 4.1        | 2.2.z | 5.0.z | 9.4.z      |
-#     | Euwe           | 5.y.z  | 5.7.z                        | 4.1        | 2.3.z | 5.0.z | 9.5.z      |
-#     | Fine           | 6.y.z  | 5.8.z                        | 4.5        | 2.3.z | 5.0.z | 9.5.z      |
-#     | Gaprindashvili | 7.y.z  | 5.9.z                        | 4.6        | 2.3.z | 5.0.z | 9.5.z      |
-#     | Hammer         | 8.y.z  | 5.10.z                       | 4.7        | 2.4.z | 5.0.z | 9.5.z      |
-#     | Ivanchuk       | 9.y.z  | 5.11.z                       | 5.0        | 2.5.z | 5.1.z | 10.y       |
-#     | Jansa          | 10.y.z | 5.12.z                       | 5.1        | 2.5.z | 5.2.z | 10.y       |
-#     | Kasparov       | 11.y.z | 5.13.z                       | 5.2        | 2.6.z | 5.2.z | 10.y       |
-#     +----------------+--------+------------------------------+------------+-------+-------+------------+
+# When run as a program, prints a table of the current information.
 #
 # Otherwise, it can be required in a ruby script or rake task and manipulated as needed:
 #
@@ -37,28 +18,28 @@
 #     #=> #<struct CFME::Version miq_release="Jansa", cfme_release="5.12.z", cloud_forms_release="5.1", ruby="2.5.z", rails="5.2.z", postgresql="10.y">
 #
 module CFME
-  Version = Struct.new(:miq_release, :miq_semver, :cfme_release, :cloud_forms_release, :ruby, :rails, :postgresql)
+  Version = Struct.new(:miq_release, :miq_semver, :cfme_release, :cloud_forms_release, :cp4mcm_release, :ruby, :rails, :postgresql)
 
   class Versions
     extend Enumerable
 
     FIELDS   = [
-         "MANAGEIQ",      "",       "CLOUDFORMS MANAGEMENT ENGINE", "CLOUDFORMS", "RUBY", "RAILS", "POSTGRESQL"
+         "MANAGEIQ",      "",       "CLOUDFORMS MANAGEMENT ENGINE", "CLOUDFORMS", "CP4MCM", "RUBY", "RAILS", "POSTGRESQL"
     ].freeze
     VERSIONS = [
-      %w[ N/A             N/A        5.1.z                           2.0           N/A     N/A      N/A        ],
-      %w[ N/A             N/A        5.2.z                           3.0           N/A     N/A      N/A        ],
-      %w[ Anand           1.y.z      5.3.z                           3.1           N/A     N/A      N/A        ],
-      %w[ Botvinnik       2.y.z      5.4.z                           3.2           N/A     N/A      N/A        ],
-      %w[ Capablanca      3.y.z      5.5.z                           4.0           2.2.z   4.2.z    9.4.z      ],
-      %w[ Darga           4.y.z      5.6.z                           4.1           2.2.z   5.0.z    9.4.z      ],
-      %w[ Euwe            5.y.z      5.7.z                           4.2           2.3.z   5.0.z    9.5.z      ],
-      %w[ Fine            6.y.z      5.8.z                           4.5           2.3.z   5.0.z    9.5.z      ],
-      %w[ Gaprindashvili  7.y.z      5.9.z                           4.6           2.3.z   5.0.z    9.5.z      ],
-      %w[ Hammer          8.y.z      5.10.z                          4.7           2.4.z   5.0.z    9.5.z      ],
-      %w[ Ivanchuk        9.y.z      5.11.z                          5.0           2.5.z   5.1.z    10.y       ],
-      %w[ Jansa           10.y.z     5.12.z                          5.1           2.5.z   5.2.z    10.y       ],
-      %w[ Kasparov        11.y.z     5.13.z                          5.2           2.6.z   5.2.z    10.y       ]
+      %w[ N/A             N/A        5.1.z                           2.0           N/A      N/A     N/A      N/A        ],
+      %w[ N/A             N/A        5.2.z                           3.0           N/A      N/A     N/A      N/A        ],
+      %w[ Anand           1.y.z      5.3.z                           3.1           N/A      N/A     N/A      N/A        ],
+      %w[ Botvinnik       2.y.z      5.4.z                           3.2           N/A      N/A     N/A      N/A        ],
+      %w[ Capablanca      3.y.z      5.5.z                           4.0           N/A      2.2.z   4.2.z    9.4.z      ],
+      %w[ Darga           4.y.z      5.6.z                           4.1           N/A      2.2.z   5.0.z    9.4.z      ],
+      %w[ Euwe            5.y.z      5.7.z                           4.2           N/A      2.3.z   5.0.z    9.5.z      ],
+      %w[ Fine            6.y.z      5.8.z                           4.5           N/A      2.3.z   5.0.z    9.5.z      ],
+      %w[ Gaprindashvili  7.y.z      5.9.z                           4.6           N/A      2.3.z   5.0.z    9.5.z      ],
+      %w[ Hammer          8.y.z      5.10.z                          4.7           N/A      2.4.z   5.0.z    9.5.z      ],
+      %w[ Ivanchuk        9.y.z      5.11.z                          5.0           1.2,1.3  2.5.z   5.1.z    10.y       ],
+      %w[ Jansa           10.y.z     N/A                             N/A           2.0      2.5.z   5.2.z    10.y       ],
+      %w[ Kasparov        11.y.z     N/A                             N/A           N/A      2.6.z   5.2.z    10.y       ]
     ].freeze
 
     class << self
@@ -93,7 +74,8 @@ module CFME
 
       # Version of this gem/tool
       def version
-        versions.last.cfme_release.split(".").select { |val| val =~ /^\d+$/ }.join('.') + ".0"
+        numbers = versions.last.miq_semver.split(".").select { |val| val =~ /^\d+$/ } + %w[0 0 0]
+        numbers.first(3).join(".")
       end
 
       def versions
