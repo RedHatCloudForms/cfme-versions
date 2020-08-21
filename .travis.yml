@@ -1,6 +1,11 @@
 ---
 language: ruby
 cache: bundler
+# ref: https://github.com/travis-ci/travis-build/blob/543bb7e3/lib/travis/build/script/crystal.rb#L104-L108
+before_script:
+  - travis_apt_get_update
+  - sudo apt-get install -y gcc pkg-config git tzdata libpcre3-dev libevent-dev libyaml-dev libgmp-dev libssl-dev libxml2-dev 2>&1 > /dev/null
+  - sudo snap install crystal --classic --channel=latest/stable
 rvm:
 - 2.5
 - 2.6
