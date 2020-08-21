@@ -58,6 +58,12 @@ In the cases where a patch is needed, just update the `CFME::Versions.version`
 to set the version directly. When a new version is released, reset it back to 0
 for consistency.
 
+Note:  Previously the CFME version number was used to version this gem, but
+since that is reaching EOL the decision was made to use the upstream
+`miq_semver` variable instead as that project will continue forward.  This also
+means the gem release "jumped" from `5.12` to `11.0.0`, but that is intentional
+since `5.11` is the last CFME release.
+
 
 Usage
 -----
