@@ -55,8 +55,8 @@ most recent numeric version of ManageIQ.  However, in the case of bug fixes,
 patch versions might be included.
 
 In the cases where a patch is needed, just update the `CFME::Versions.version`
-to set the version directly. When a new version is released, reset it back to 0
-for consistency.
+to set the version directly. When a new version is released, reset the end of
+the string to `+ ".0.0"` for consistency.
 
 Note:  Previously the CFME version number was used to version this gem, but
 since that is reaching EOL the decision was made to use the upstream

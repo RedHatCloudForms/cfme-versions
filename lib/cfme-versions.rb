@@ -71,8 +71,7 @@ module CFME
 
       # Version of this gem/tool
       def version
-        numbers = versions.last.miq_semver.split(".").select { |val| val =~ /^\d+$/ } + %w[0 0 0]
-        numbers.first(3).join(".")
+        versions.last.miq_semver.split(".").first + ".0.0"
       end
 
       def versions
