@@ -2,21 +2,19 @@ require "test_helper"
 
 class CFME::Versions::Test < Minitest::Test
   DEFAULT_TABLE_DATA = <<~TABLE_DATA
-| ManageIQ       |        | CFME   | CloudForms | CP4MCM  | Ruby  | Rails | PostgreSQL |
-| -------------- | ------ | ------ | ---------- | ------- | ----- | ----- | ---------- |
-|                |        | 5.1.z  | 2.0        |         |       |       |            |
-|                |        | 5.2.z  | 3.0        |         |       |       |            |
-| Anand          | 1.y.z  | 5.3.z  | 3.1        |         |       |       |            |
-| Botvinnik      | 2.y.z  | 5.4.z  | 3.2        |         |       |       |            |
-| Capablanca     | 3.y.z  | 5.5.z  | 4.0        |         | 2.2.z | 4.2.z | 9.4.z      |
-| Darga          | 4.y.z  | 5.6.z  | 4.1        |         | 2.2.z | 5.0.z | 9.4.z      |
-| Euwe           | 5.y.z  | 5.7.z  | 4.2        |         | 2.3.z | 5.0.z | 9.5.z      |
-| Fine           | 6.y.z  | 5.8.z  | 4.5        |         | 2.3.z | 5.0.z | 9.5.z      |
-| Gaprindashvili | 7.y.z  | 5.9.z  | 4.6        |         | 2.3.z | 5.0.z | 9.5.z      |
-| Hammer         | 8.y.z  | 5.10.z | 4.7        |         | 2.4.z | 5.0.z | 9.5.z      |
-| Ivanchuk       | 9.y.z  | 5.11.z | 5.0        | 1.2,1.3 | 2.5.z | 5.1.z | 10.y       |
-| Jansa          | 10.y.z |        |            | 2.0     | 2.5.z | 5.2.z | 10.y       |
-| Kasparov       | 11.y.z |        |            |         | 2.6.z | 5.2.z | 10.y       |
+| ManageIQ       |       | CFME   | CloudForms | Ruby  | Rails | PostgreSQL |
+| -------------- | ----- | ------ | ---------- | ----- | ----- | ---------- |
+|                |       | 5.1.z  | 2.0        |       |       |            |
+|                |       | 5.2.z  | 3.0        |       |       |            |
+| Anand          | 1.y.z | 5.3.z  | 3.1        |       |       |            |
+| Botvinnik      | 2.y.z | 5.4.z  | 3.2        |       |       |            |
+| Capablanca     | 3.y.z | 5.5.z  | 4.0        | 2.2.z | 4.2.z | 9.4.z      |
+| Darga          | 4.y.z | 5.6.z  | 4.1        | 2.2.z | 5.0.z | 9.4.z      |
+| Euwe           | 5.y.z | 5.7.z  | 4.2        | 2.3.z | 5.0.z | 9.5.z      |
+| Fine           | 6.y.z | 5.8.z  | 4.5        | 2.3.z | 5.0.z | 9.5.z      |
+| Gaprindashvili | 7.y.z | 5.9.z  | 4.6        | 2.3.z | 5.0.z | 9.5.z      |
+| Hammer         | 8.y.z | 5.10.z | 4.7        | 2.4.z | 5.0.z | 9.5.z      |
+| Ivanchuk       | 9.y.z | 5.11.z | 5.0        | 2.5.z | 5.1.z | 10.y       |
   TABLE_DATA
 
   def teardown
@@ -25,7 +23,7 @@ class CFME::Versions::Test < Minitest::Test
   end
 
   def test_version
-    assert_equal "11.0.0", CFME::Versions.version
+    assert_equal "9.0.0", CFME::Versions.version
   end
 
   def test_run
@@ -34,7 +32,7 @@ class CFME::Versions::Test < Minitest::Test
   end
 
   def test_run_with_version_flag
-    assert_equal "11.0.0", capture_io { CFME::Versions.run(["--version"]) }[0].chomp
+    assert_equal "9.0.0", capture_io { CFME::Versions.run(["--version"]) }[0].chomp
   end
 
   def test_run_with_help_flag
@@ -58,25 +56,22 @@ class CFME::Versions::Test < Minitest::Test
     assert_equal "N/A",   version.miq_release
     assert_equal "5.1.z", version.cfme_release
     assert_equal "2.0",   version.cloud_forms_release
-    assert_equal "N/A",   version.cp4mcm_release
   end
 
   def test_cfme_versions_last
     version = CFME::Versions.last
 
-    assert_equal "Kasparov",  version.miq_release
-    assert_equal "N/A",       version.cfme_release
-    assert_equal "N/A",       version.cloud_forms_release
-    assert_equal "N/A",       version.cp4mcm_release
-  end
-
-  def test_cfme_versions_specific_index
-    version = CFME::Versions[10]
-
     assert_equal "Ivanchuk", version.miq_release
     assert_equal "5.11.z",   version.cfme_release
     assert_equal "5.0",      version.cloud_forms_release
-    assert_equal "1.2,1.3",  version.cp4mcm_release
+  end
+
+  def test_cfme_versions_specific_index
+    version = CFME::Versions[9]
+
+    assert_equal "Hammer", version.miq_release
+    assert_equal "5.10.z", version.cfme_release
+    assert_equal "4.7",    version.cloud_forms_release
   end
 
   def test_enumerable
@@ -92,8 +87,6 @@ class CFME::Versions::Test < Minitest::Test
       Gaprindashvili
       Hammer
       Ivanchuk
-      Jansa
-      Kasparov
     ]
 
     assert_equal expected, actual
