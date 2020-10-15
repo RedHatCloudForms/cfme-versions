@@ -5,7 +5,6 @@ Command line utility and library for viewing versions across ManageIQ,
 CloudForms Management Engine (CFME), CloudForms, and IBM CloudPak for Multicloud
 Management (CP4MCM)
 
-
 | ManageIQ       |        | CFME   | CloudForms | CP4MCM  | Ruby  | Rails | PostgreSQL |
 | -------------- | ------ | ------ | ---------- | ------- | ----- | ----- | ---------- |
 |                |        | 5.1.z  | 2.0        |         |       |       |            |
@@ -19,8 +18,8 @@ Management (CP4MCM)
 | Gaprindashvili | 7.y.z  | 5.9.z  | 4.6        |         | 2.3.z | 5.0.z | 9.5.z      |
 | Hammer         | 8.y.z  | 5.10.z | 4.7        |         | 2.4.z | 5.0.z | 9.5.z      |
 | Ivanchuk       | 9.y.z  | 5.11.z | 5.0        | 1.2,1.3 | 2.5.z | 5.1.z | 10.y       |
-| Jansa          | 10.y.z |        |            | 2.0     | 2.5.z | 5.2.z | 10.y       |
-| Kasparov       | 11.y.z |        |            |         | 2.6.z | 5.2.z | 10.y       |
+| Jansa          | 10.y.z |        |            | 2.0,2.1 | 2.5.z | 5.2.z | 10.y       |
+| Kasparov       | 11.y.z |        |            | 2.2     | 2.6.z | 5.2.z | 10.y       |
 
 Requirements
 ------------

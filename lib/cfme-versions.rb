@@ -38,8 +38,8 @@ module CFME
       %w[ Gaprindashvili  7.y.z      5.9.z    4.6           N/A       2.3.z   5.0.z    9.5.z      ],
       %w[ Hammer          8.y.z      5.10.z   4.7           N/A       2.4.z   5.0.z    9.5.z      ],
       %w[ Ivanchuk        9.y.z      5.11.z   5.0           1.2,1.3   2.5.z   5.1.z    10.y       ],
-      %w[ Jansa           10.y.z     N/A      N/A           2.0       2.5.z   5.2.z    10.y       ],
-      %w[ Kasparov        11.y.z     N/A      N/A           N/A       2.6.z   5.2.z    10.y       ]
+      %w[ Jansa           10.y.z     N/A      N/A           2.0,2.1   2.5.z   5.2.z    10.y       ],
+      %w[ Kasparov        11.y.z     N/A      N/A           2.2       2.6.z   5.2.z    10.y       ]
     ].freeze
 
     class << self

@@ -15,8 +15,8 @@ class CFME::Versions::Test < Minitest::Test
 | Gaprindashvili | 7.y.z  | 5.9.z  | 4.6        |         | 2.3.z | 5.0.z | 9.5.z      |
 | Hammer         | 8.y.z  | 5.10.z | 4.7        |         | 2.4.z | 5.0.z | 9.5.z      |
 | Ivanchuk       | 9.y.z  | 5.11.z | 5.0        | 1.2,1.3 | 2.5.z | 5.1.z | 10.y       |
-| Jansa          | 10.y.z |        |            | 2.0     | 2.5.z | 5.2.z | 10.y       |
-| Kasparov       | 11.y.z |        |            |         | 2.6.z | 5.2.z | 10.y       |
+| Jansa          | 10.y.z |        |            | 2.0,2.1 | 2.5.z | 5.2.z | 10.y       |
+| Kasparov       | 11.y.z |        |            | 2.2     | 2.6.z | 5.2.z | 10.y       |
   TABLE_DATA
 
   def teardown
@@ -64,10 +64,10 @@ class CFME::Versions::Test < Minitest::Test
   def test_cfme_versions_last
     version = CFME::Versions.last
 
-    assert_equal "Kasparov",  version.miq_release
-    assert_equal "N/A",       version.cfme_release
-    assert_equal "N/A",       version.cloud_forms_release
-    assert_equal "N/A",       version.cp4mcm_release
+    assert_equal "Kasparov", version.miq_release
+    assert_equal "N/A",      version.cfme_release
+    assert_equal "N/A",      version.cloud_forms_release
+    assert_equal "2.2",      version.cp4mcm_release
   end
 
   def test_cfme_versions_specific_index
