@@ -8,8 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["ManageIQ Authors"]
 
   spec.summary       = "Command line utility and library for viewing versions across ManageIQ, "
-                       "CloudForms Management Engine (CFME), CloudForms, and IBM CloudPak for Multicloud "
-                       "Management (CP4MCM)"
+                       "CloudForms Management Engine (CFME), and CloudForms."
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/RedHatCloudForms/cfme-versions"
   spec.license       = "Apache-2.0"

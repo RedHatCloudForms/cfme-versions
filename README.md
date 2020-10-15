@@ -2,25 +2,23 @@
 ================
 
 Command line utility and library for viewing versions across ManageIQ,
-CloudForms Management Engine (CFME), CloudForms, and IBM CloudPak for Multicloud
-Management (CP4MCM)
+CloudForms Management Engine (CFME) and CloudForms.
 
 
-| ManageIQ       |        | CFME   | CloudForms | CP4MCM  | Ruby  | Rails | PostgreSQL |
-| -------------- | ------ | ------ | ---------- | ------- | ----- | ----- | ---------- |
-|                |        | 5.1.z  | 2.0        |         |       |       |            |
-|                |        | 5.2.z  | 3.0        |         |       |       |            |
-| Anand          | 1.y.z  | 5.3.z  | 3.1        |         |       |       |            |
-| Botvinnik      | 2.y.z  | 5.4.z  | 3.2        |         |       |       |            |
-| Capablanca     | 3.y.z  | 5.5.z  | 4.0        |         | 2.2.z | 4.2.z | 9.4.z      |
-| Darga          | 4.y.z  | 5.6.z  | 4.1        |         | 2.2.z | 5.0.z | 9.4.z      |
-| Euwe           | 5.y.z  | 5.7.z  | 4.2        |         | 2.3.z | 5.0.z | 9.5.z      |
-| Fine           | 6.y.z  | 5.8.z  | 4.5        |         | 2.3.z | 5.0.z | 9.5.z      |
-| Gaprindashvili | 7.y.z  | 5.9.z  | 4.6        |         | 2.3.z | 5.0.z | 9.5.z      |
-| Hammer         | 8.y.z  | 5.10.z | 4.7        |         | 2.4.z | 5.0.z | 9.5.z      |
-| Ivanchuk       | 9.y.z  | 5.11.z | 5.0        | 1.2,1.3 | 2.5.z | 5.1.z | 10.y       |
-| Jansa          | 10.y.z |        |            | 2.0     | 2.5.z | 5.2.z | 10.y       |
-| Kasparov       | 11.y.z |        |            |         | 2.6.z | 5.2.z | 10.y       |
+| ManageIQ       |       | CFME   | CloudForms | Ruby  | Rails | PostgreSQL |
+| -------------- | ----- | ------ | ---------- | ----- | ----- | ---------- |
+|                |       | 5.1.z  | 2.0        |       |       |            |
+|                |       | 5.2.z  | 3.0        |       |       |            |
+| Anand          | 1.y.z | 5.3.z  | 3.1        |       |       |            |
+| Botvinnik      | 2.y.z | 5.4.z  | 3.2        |       |       |            |
+| Capablanca     | 3.y.z | 5.5.z  | 4.0        | 2.2.z | 4.2.z | 9.4.z      |
+| Darga          | 4.y.z | 5.6.z  | 4.1        | 2.2.z | 5.0.z | 9.4.z      |
+| Euwe           | 5.y.z | 5.7.z  | 4.2        | 2.3.z | 5.0.z | 9.5.z      |
+| Fine           | 6.y.z | 5.8.z  | 4.5        | 2.3.z | 5.0.z | 9.5.z      |
+| Gaprindashvili | 7.y.z | 5.9.z  | 4.6        | 2.3.z | 5.0.z | 9.5.z      |
+| Hammer         | 8.y.z | 5.10.z | 4.7        | 2.4.z | 5.0.z | 9.5.z      |
+| Ivanchuk       | 9.y.z | 5.11.z | 5.0        | 2.5.z | 5.1.z | 10.y       |
+
 
 Requirements
 ------------
@@ -98,7 +96,6 @@ CFME::Versions.last
 #       miq_release="Jansa",
 #       cfme_release="5.12.z",
 #       cloud_forms_release="5.1",
-#       cp4mcm_release="2.0",
 #       ruby="2.5.z",
 #       rails="5.2.z",
 #       postgresql="10.y">
